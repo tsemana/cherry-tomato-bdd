@@ -11,3 +11,10 @@ Feature: View Pomodoros
     And I have no pomodoros
     When I review my activity
     Then I should be informed that I have none
+
+  @watch
+  Scenario: I have pomodoros
+    Given I am authenticated
+    And I have 2 pomodoros
+    When I review my activity
+    Then I should see 2 pomodoros
