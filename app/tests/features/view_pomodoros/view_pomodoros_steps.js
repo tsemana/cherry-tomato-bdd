@@ -3,11 +3,16 @@
 
 module.exports = function steps() {
   this.Given(/^I am authenticated$/, () => {
-    // Skip this detail for for; assumaes always authenticated
+    // Skip this detail for for; assumes always authenticated
   });
 
   this.Given(/^I have no pomodoros$/, () => {
     // No pomodoros, check! :)
+  });
+
+  this.Given(/^I have (\d+) pomodoros$/, (count) => {
+    // Write the automation code here
+    pending();
   });
 
   const PomodoroManager = {
@@ -29,4 +34,10 @@ module.exports = function steps() {
   this.Then(/^I should be informed that I have none$/, () => {
     expect(myPomodoros).toEqual('No Pomodoros yet');
   });
+
+  this.Then(/^I should see (\d+) pomodoros$/, (expectedCount) => {
+    // Write the automation code here
+    pending();
+  });
 };
+
