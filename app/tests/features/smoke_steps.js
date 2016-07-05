@@ -9,7 +9,7 @@ module.exports = function steps() {
   this.Then(/^I should see "([^"]*)"$/, (welcomeMessage) => {
     const el = browser.element('h1');
     el.waitForExist();
-    expect(el.getText()).toEqual('This should fail');
+    expect(el.getText()).toEqual(welcomeMessage);
   });
 };
 
