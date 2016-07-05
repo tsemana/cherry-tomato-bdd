@@ -10,7 +10,7 @@ module.exports = function steps() {
   });
 
   this.Given(/^I have no pomodoros$/, () => {
-    // No pomodoros, check! :)
+    pomodoroData = [];
   });
 
   this.Given(/^I have (\d+) pomodoros$/, (count) => {
@@ -19,11 +19,8 @@ module.exports = function steps() {
   });
 
   const PomodoroManager = {
-    myCompletedPomodoros: () => {
-      return pomodoroData;
-    }
+    myCompletedPomodoros: () => pomodoroData,
   };
-
 
   this.When(/^I review my activity$/, () => {
     // Naive implementation of 'BDD' is to assume this
@@ -36,7 +33,7 @@ module.exports = function steps() {
   });
 
   this.Then(/^I should be informed that I have none$/, () => {
-    expect(myPomodoros).toEqual('No Pomodoros yet');
+    expect(myPomodoros.length).toEqual(0);
   });
 
   this.Then(/^I should see (\d+) pomodoros$/, (expectedCount) => {
