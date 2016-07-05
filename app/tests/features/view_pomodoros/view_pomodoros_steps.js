@@ -2,6 +2,9 @@
 /* global browser, expect, pending, Meteor */
 
 module.exports = function steps() {
+  let myPomodoros;
+  let pomodoroData;
+
   this.Given(/^I am authenticated$/, () => {
     // Skip this detail for for; assumes always authenticated
   });
@@ -11,15 +14,16 @@ module.exports = function steps() {
   });
 
   this.Given(/^I have (\d+) pomodoros$/, (count) => {
-    // Write the automation code here
-    pending();
+    // Hardcode Pomodoros array
+    pomodoroData = ['first', 'second'];
   });
 
   const PomodoroManager = {
-    myCompletedPomodoros: () => 'No Pomodoros yet',
+    myCompletedPomodoros: () => {
+      return pomodoroData;
+    }
   };
 
-  let myPomodoros;
 
   this.When(/^I review my activity$/, () => {
     // Naive implementation of 'BDD' is to assume this
@@ -36,8 +40,7 @@ module.exports = function steps() {
   });
 
   this.Then(/^I should see (\d+) pomodoros$/, (expectedCount) => {
-    // Write the automation code here
-    pending();
+    expect(myPomodoros.length).toEqual(parseInt(expectedCount));
   });
 };
 
