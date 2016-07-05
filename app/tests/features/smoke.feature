@@ -6,4 +6,4 @@ Feature: Smoke Test
   @watch
   Scenario: Find home
     Given I am home
-    Then I should see "Welcome to Meteor!"
+    Then I should see "Cherry Tomato"
